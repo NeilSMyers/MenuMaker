@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react"
+import React, { useRef, useState, useEffect } from "react"
 import {
   SafeAreaView,
   Text,
@@ -65,7 +65,13 @@ function CreateMenuItemModal({ visible, onSubmit, menuLength }) {
             setTitle("")
             setDescription("")
             setPrice("")
-            onSubmit({ id: menuLength + 1, title, image, description, price })
+            onSubmit({
+              id: Math.random(),
+              title,
+              image,
+              description,
+              price,
+            })
           }}
           disabled={!image || !title || !description || !price}
           style={styles.button}

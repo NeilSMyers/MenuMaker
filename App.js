@@ -29,6 +29,10 @@ export default function App() {
     ])
   }
 
+  const editItem = (id) => {
+    const item = menu.find((item) => item.id == id)
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="light" />
@@ -41,7 +45,7 @@ export default function App() {
       <FlatList
         data={menu}
         renderItem={({ item }) => (
-          <MenuItem {...item} deleteItem={deleteItem} />
+          <MenuItem {...item} deleteItem={deleteItem} editItem={editItem} />
         )}
         keyExtractor={(item) => item.id}
       />
